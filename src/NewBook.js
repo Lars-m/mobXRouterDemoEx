@@ -8,7 +8,9 @@ export default class NewBook extends React.Component{
   }
   
   saveBook = () =>{
-   bookStore.addBook(this.state.book)
+   bookStore.addBook(this.state.book);
+   //Clear input fields, to allow for a new "new book"
+   this.setState({book:{ title: "",info: "", moreInfo: ""}});
    event.preventDefault();
   }
 
@@ -31,11 +33,12 @@ export default class NewBook extends React.Component{
     return (
       <div>
       <h2>New Book </h2>
-      <form>
-       <input onChange={this.handleChange}  id="title" type="text" placeholder="title"/><br/>
-       <input onChange={this.handleChange} id="info" type="text" placeholder="info"/><br/>
-       <input onChange={this.handleChange} id="moreInfo" type="text" placeholder="moreInfo"/><br/><br/>
-       <button className="btn btn-sm btn-success" onClick={this.saveBook}>Save Book </button>
+      <form onSubmit={this.saveBook}>
+       <input onChange={this.handleChange} value={this.state.book.title} id="title" type="text" placeholder="title"/><br/>
+       <input onChange={this.handleChange} value={this.state.book.info} id="info" type="text" placeholder="info"/><br/>
+       <input onChange={this.handleChange} value={this.state.book.moreInfo} id="moreInfo" type="text" placeholder="moreInfo"/><br/><br/>
+       <button className="btn btn-sm btn-success" 
+       >Save Book </button>
        <p> {JSON.stringify(this.state.book)}</p>
       </form>
       </div>
