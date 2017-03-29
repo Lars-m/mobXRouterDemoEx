@@ -1,7 +1,6 @@
 import React from "react"
 import bookStore from "./BookStore";
 
-
 export default class NewBook extends React.Component{
   constructor(){
     super();
@@ -25,10 +24,8 @@ export default class NewBook extends React.Component{
     if(id === "moreInfo"){
       book.moreInfo = event.target.value;
     }
-    this.setState({book});
-    
+    this.setState({book});  
   }
-
 
   render(){
     return (
@@ -37,9 +34,9 @@ export default class NewBook extends React.Component{
       <form>
        <input onChange={this.handleChange}  id="title" type="text" placeholder="title"/><br/>
        <input onChange={this.handleChange} id="info" type="text" placeholder="info"/><br/>
-       <input onChange={this.handleChange} id="moreInfo" type="text" placeholder="moreInfo"/><br/>
-       <button onClick={this.saveBook}>Save Book </button>
-       <p>{JSON.stringify(this.state.book)}</p>
+       <input onChange={this.handleChange} id="moreInfo" type="text" placeholder="moreInfo"/><br/><br/>
+       <button className="btn btn-sm btn-success" onClick={this.saveBook}>Save Book </button>
+       <p> {JSON.stringify(this.state.book)}</p>
       </form>
       </div>
     )

@@ -34,7 +34,7 @@ class Product extends React.Component {
     return (
       <div>
         <h2>Our Products</h2>
-        <button onClick={this.onNewBook}>Add Book</button>
+        <button className="btn btn-default btn-sm" onClick={this.onNewBook}>Add Book</button>
         <h4>All our great books </h4>
         <ul>
           {this.props.route.books.map((book, index) => <li key={index}>
